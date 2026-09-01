@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+      <meta data-sandbox-injected="" http-equiv="Content-Security-Policy" content="
+          default-src 'none';
+          base-uri 'none';
+          connect-src https://fonts.gstatic.com https://www.gstatic.com;
+          font-src https://fonts.gstatic.com;
+          form-action 'none';
+          
+          worker-src blob: https://*.scf.usercontent.goog;
+          img-src data: https://encrypted-tbn0.gstatic.com https://encrypted-tbn1.gstatic.com https://encrypted-tbn2.gstatic.com https://encrypted-tbn3.gstatic.com ;
+          media-src 'none';
+          object-src 'none';
+          script-src 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://widgetlibs.static.usercontent.goog https://*.scf.usercontent.goog;
+          style-src 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://www.gstatic.com/;">
+      <meta data-sandbox-injected="" charset="UTF-8">
+      <meta data-sandbox-injected="" name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="enable-onep-api" content="false"><script data-sandbox-injected="true">(function(){var g=Object.defineProperty,k=globalThis,l=function(a,b){if(b)a:{var c=k;a=a.split(".");for(var d=0;d<a.length-1;d++){var e=a[d];if(!(e in c))break a;c=c[e]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&b!=null&&g(c,a,{configurable:!0,writable:!0,value:b})}};l("Promise.withResolvers",function(a){return a?a:function(){var b,c;return{promise:new Promise(function(d,e){b=d;c=e}),resolve:b,reject:c}}});var m=function(a){return typeof a==="object"&&a!==null&&"kind"in a&&typeof a.kind==="string"&&("payload"in a||a.kind==="___CROSS_FRAME_HANDSHAKE___")},n=class{constructor(){this.j=new Map}i(a){var b=a.data;if(m(b)){let c=b.payload;if(b=this.j.get(b.kind))(a=a.ports&&a.ports.length>0?a.ports:void 0)?b(c,a):b(c)}}sendMessage(a,b,c){if(!this.port)throw Error("a");a={kind:String(a),payload:b||{}};c&&c.length>0?this.port.postMessage(a,c):this.port.postMessage(a)}},p=async function(a){var b=window.parent;
+return a.h?{}:new Promise(c=>{var d=e=>{e.source===b&&m(e.data)&&e.data.kind==="___CROSS_FRAME_HANDSHAKE___"&&(window.removeEventListener("message",d),a.port=e.ports[0],a.port.onmessage=a.i.bind(a),a.h=!0,c(e.data.payload||{}))};window.addEventListener("message",d)})},q=class extends n{constructor(){super(...arguments);this.h=!1}};if(typeof window!=="undefined"&&window.history){let a=window.history.replaceState.bind(window.history);window.history.replaceState=(c,d,e)=>{try{a(c,d,e)}catch{}};let b=window.history.pushState.bind(window.history);window.history.pushState=(c,d,e)=>{try{b(c,d,e)}catch{}}}
+if(typeof window!=="undefined"&&window.fetch){let a=window.fetch.bind(window);window.fetch=async(...b)=>{try{return await a(...b)}catch(c){b=b[0];b=typeof b==="string"?b:b&&typeof b==="object"&&"url"in b?String(b.url||""):String(b||"");if(b.includes("tracking")||b.includes("analytics")||b.includes("beacon"))return new Response(null,{status:204});throw c;}}}var {promise:r,resolve:t}=Promise.withResolvers(),{promise:u,resolve:v}=Promise.withResolvers(),w=!1;
+(async function(){var a=new q,b=await p(a);b&&b.enableSandboxToEditorSync&&(w=!!b.enableSandboxToEditorSync);if(b&&b.initialPayload){let c=b.initialPayload;window.initialPayload=c;window.setTimeout(()=>{window.dispatchEvent(new MessageEvent("message",{data:c}))},0)}t(a);(a=a.port)&&v(a)})();function x(a){r.then(b=>{b.sendMessage("ERROR",{error:a})})}window.onerror=(a,b,c,d,e)=>{x(e);return!0};
+window.onunhandledrejection=a=>{var b=String(a.reason||"");b.includes("Failed to fetch")||b.includes("Content Security Policy")||b.includes("replaceState")||x(Error(a.reason));a.preventDefault()};
+window.document.addEventListener("DOMContentLoaded",()=>{r.then(a=>{a.sendMessage("ISOLATE_READY",{});var b=window.document.querySelector("#resize-target")||window.document.body,c=NaN,d=NaN,e=!1;(new ResizeObserver(()=>{e||(e=!0,window.requestAnimationFrame(()=>{e=!1;var f=Math.ceil(b.scrollHeight),h=Math.ceil(b.scrollWidth);f===c&&h===d||f===0&&h===0||(c=f,d=h,a.sendMessage("RESIZE",{height:f,width:h}))}))})).observe(b);if(w){let f;(new MutationObserver(()=>{f&&window.clearTimeout(f);f=window.setTimeout(()=>
+{f=void 0;a.sendMessage("HTML_CHANGED",{html:"<!DOCTYPE html>\n"+window.document.documentElement.outerHTML})},500)})).observe(window.document.documentElement,{attributes:!0,childList:!0,subtree:!0,characterData:!0})}})});window.addEventListener("resizeRequest",()=>{r.then(a=>{var b=window.document.querySelector("#resize-target")||window.document.body,c=Math.ceil(b.scrollHeight);b=Math.ceil(b.scrollWidth);c===0&&b===0||a.sendMessage("MANUAL_RESIZE",{height:c,width:b})})});
+function y(a){var b=null;a instanceof Element?b=a:a&&a.nodeType===Node.TEXT_NODE&&(b=a.parentElement);if(!b)return null;for(a=b;a&&a!==window.document.body;){if(a.matches('a,button,input,textarea,select,option,details,summary,area,[jsaction],[data-jsaction],[role],[tabindex]:not([tabindex="-1"])'))return z(a);if(a instanceof HTMLElement&&a.isContentEditable)return z(a);a=a.parentElement}return null}
+function z(a){var b={tagName:a.tagName.toUpperCase(),attributes:{}},c=["role","jsaction","data-jsaction","tabindex"];for(let d of c)c=a.getAttribute(d),c!==null&&(b.attributes[d]=c);a instanceof HTMLElement&&a.isContentEditable&&(b.isContentEditable=!0);return b}window.addEventListener("click",a=>{var b=(a=a.target)?y(a):null;r.then(c=>{c.sendMessage("CLICK",{matchedNode:b})})},!0);
+window.addEventListener("request_window_open",a=>{var b=a.detail;r.then(c=>{c.sendMessage("REQUEST_WINDOW_OPEN",{url:b.url,hostname:b.hostname,target:b.target,features:b.features,skipConfirmation:b.skipConfirmation})})});window.sandboxConsoleLog=(a,b)=>{r.then(c=>{c.sendMessage("CONSOLE_LOG",{logLevel:a,message:b})})};if(document.querySelector('meta[name="enable-onep-api"]')?.getAttribute("content")==="true"){let a=!1;window.claimPortReady=()=>{if(a)return null;a=!0;return u}}window.logError=x;}).call(this);</script><script>(function(){function f(b){return["https://www.google.com/maps/","https://maps.google.com/","https://www.youtube.com/watch?v=","https://www.youtube.com/v/","https://youtu.be/"].some(a=>b.startsWith(a))}window.open=(b,a,d)=>{var c,e=!1;if(b)try{if(c=b instanceof URL?b.toString():String(b)){var g=(new URL(c,window.location.href)).hostname;e=f(c)}}catch(h){}window.dispatchEvent(new CustomEvent("request_window_open",{detail:{url:c,hostname:g,target:a,features:d,h:e}}));return null};
+window.addEventListener("click",b=>{var a=b.target.closest("a");if(a&&a.getAttribute("target")==="_blank"&&a.hasAttribute("href")){a=a.getAttribute("href");let d,c=!1;try{d=(new URL(a,window.location.href)).hostname,c=f(a)}catch(e){}b.preventDefault();b.stopPropagation();window.dispatchEvent(new CustomEvent("request_window_open",{detail:{url:a,hostname:d,target:"_blank",h:c}}))}},!0);}).call(this);</script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><title>Generated Interactive Widget</title><script type="module" crossorigin="">
+import { jsx, jsxs } from 'https://widgetlibs.static.usercontent.goog/react/jsx-runtime-Dc9ViRTo.js';
+import React, { useState, useRef, useEffect, useMemo } from 'https://widgetlibs.static.usercontent.goog/react-Dd1pKoqe.js';
+import ReactDOM from 'https://widgetlibs.static.usercontent.goog/react-dom/client-BTuQ-l8_.js';
+import { ErrorBoundary } from 'https://widgetlibs.static.usercontent.goog/react-error-boundary-BY2GTZrN.js';
+import * as ToggleGroup from 'https://widgetlibs.static.usercontent.goog/@radix-ui/react-toggle-group-SAzue8E6.js';
+
+true              &&(function polyfill() {
+	const relList = document.createElement("link").relList;
+	if (relList && relList.supports && relList.supports("modulepreload")) return;
+	for (const link of document.querySelectorAll("link[rel=\"modulepreload\"]")) processPreload(link);
+	new MutationObserver((mutations) => {
+		for (const mutation of mutations) {
+			if (mutation.type !== "childList") continue;
+			for (const node of mutation.addedNodes) if (node.tagName === "LINK" && node.rel === "modulepreload") processPreload(node);
+		}
+	}).observe(document, {
+		childList: true,
+		subtree: true
+	});
+	function getFetchOpts(link) {
+		const fetchOpts = {};
+		if (link.integrity) fetchOpts.integrity = link.integrity;
+		if (link.referrerPolicy) fetchOpts.referrerPolicy = link.referrerPolicy;
+		if (link.crossOrigin === "use-credentials") fetchOpts.credentials = "include";
+		else if (link.crossOrigin === "anonymous") fetchOpts.credentials = "omit";
+		else fetchOpts.credentials = "same-origin";
+		return fetchOpts;
+	}
+	function processPreload(link) {
+		if (link.ep) return;
+		link.ep = true;
+		const fetchOpts = getFetchOpts(link);
+		fetch(link.href, fetchOpts);
+	}
+}());
+
+const HISTORICAL_DATA = [
+  { year: 1970, taxRate: 71.7, deficit: 2.8, debt: 370.9, event: "1970 Start" },
+  { year: 1972, taxRate: 70, deficit: 23, debt: 426.4 },
+  { year: 1974, taxRate: 70, deficit: 6.1, debt: 474.2 },
+  { year: 1976, taxRate: 70, deficit: 73.7, debt: 620.4 },
+  { year: 1978, taxRate: 70, deficit: 59.2, debt: 771.5 },
+  { year: 1980, taxRate: 70, deficit: 73.8, debt: 907.7 },
+  { year: 1981, taxRate: 69.1, deficit: 79, debt: 997.9, event: "Economic Recovery Tax Act (Reagan)" },
+  { year: 1982, taxRate: 50, deficit: 128, debt: 1142 },
+  { year: 1984, taxRate: 50, deficit: 185.4, debt: 1572.3 },
+  { year: 1986, taxRate: 50, deficit: 221.2, debt: 2125.3, event: "Tax Reform Act of 1986" },
+  { year: 1988, taxRate: 28, deficit: 155.2, debt: 2602.3 },
+  { year: 1990, taxRate: 28, deficit: 221, debt: 3233.3 },
+  { year: 1991, taxRate: 31, deficit: 269.2, debt: 3665.3 },
+  { year: 1993, taxRate: 39.6, deficit: 255.1, debt: 4411.5, event: "Omnibus Budget Reconciliation Act" },
+  { year: 1995, taxRate: 39.6, deficit: 164, debt: 4974 },
+  { year: 1998, taxRate: 39.6, deficit: -69.3, debt: 5526.2, event: "Late 90s Budget Surplus" },
+  { year: 2e3, taxRate: 39.6, deficit: -236.2, debt: 5674.2 },
+  { year: 2001, taxRate: 39.1, deficit: -128.2, debt: 5807.5, event: "EGTRRA Tax Cuts (Bush)" },
+  { year: 2003, taxRate: 35, deficit: 377.6, debt: 6783.2 },
+  { year: 2005, taxRate: 35, deficit: 318.3, debt: 7932.7 },
+  { year: 2008, taxRate: 35, deficit: 458.6, debt: 10024.7 },
+  { year: 2009, taxRate: 35, deficit: 1412.7, debt: 11909.8, event: "Great Recession Response" },
+  { year: 2011, taxRate: 35, deficit: 1299.6, debt: 14790.3 },
+  { year: 2013, taxRate: 39.6, deficit: 679.5, debt: 16738.2, event: "American Taxpayer Relief Act" },
+  { year: 2015, taxRate: 39.6, deficit: 438.4, debt: 18120.2 },
+  { year: 2017, taxRate: 39.6, deficit: 665.4, debt: 20244.9 },
+  { year: 2018, taxRate: 37, deficit: 779.1, debt: 21516.1, event: "Tax Cuts and Jobs Act (Trump)" },
+  { year: 2020, taxRate: 37, deficit: 3132.4, debt: 27747.8, event: "COVID-19 Stimulus Peak Deficit" },
+  { year: 2022, taxRate: 37, deficit: 1375.5, debt: 30928.9 },
+  { year: 2024, taxRate: 37, deficit: 1695, debt: 34790 },
+  { year: 2025, taxRate: 37, deficit: 1780, debt: 38200, event: "FY 2025 Current Estimate" }
+];
+function ErrorFallback({ error }) {
+  return /* @__PURE__ */ jsxs("div", { className: "p-5 text-error bg-card rounded-lg text-sm", children: [
+    /* @__PURE__ */ jsx("p", { className: "font-medium", children: "Something went wrong:" }),
+    /* @__PURE__ */ jsx("pre", { className: "text-xs mt-1 overflow-auto", children: error.message })
+  ] });
+}
+function App() {
+  const [selectedYear, setSelectedYear] = useState(2025);
+  const [focusMetric, setFocusMetric] = useState("deficit");
+  const [width, setWidth] = useState(720);
+  const containerRef = useRef(null);
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        if (entry.contentRect.width) {
+          setWidth(Math.max(360, entry.contentRect.width));
+        }
+      }
+    });
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+  const height = width * 0.52;
+  const margin = { top: 35, right: 65, bottom: 40, left: 65 };
+  const boundsWidth = width - margin.left - margin.right;
+  const boundsHeight = height - margin.top - margin.bottom;
+  const activeDataPoint = useMemo(() => {
+    return HISTORICAL_DATA.reduce(
+      (prev, curr) => Math.abs(curr.year - selectedYear) < Math.abs(prev.year - selectedYear) ? curr : prev
+    );
+  }, [selectedYear]);
+  const getX = (year) => {
+    return (year - 1970) / (2025 - 1970) * boundsWidth;
+  };
+  const getTaxY = (rate) => {
+    return boundsHeight - rate / 80 * boundsHeight;
+  };
+  const getAmountY = (amount) => {
+    if (focusMetric === "debt") {
+      return boundsHeight - amount / 4e4 * boundsHeight;
+    } else {
+      const pct = (amount - -300) / (3500 - -300);
+      return boundsHeight - pct * boundsHeight;
+    }
+  };
+  const taxPathStr = useMemo(() => {
+    let path = "";
+    HISTORICAL_DATA.forEach((d, i) => {
+      const x = getX(d.year);
+      const y = getTaxY(d.taxRate);
+      if (i === 0) {
+        path += `M ${x} ${y}`;
+      } else {
+        getX(HISTORICAL_DATA[i - 1].year);
+        path += ` L ${x} ${getTaxY(HISTORICAL_DATA[i - 1].taxRate)} L ${x} ${y}`;
+      }
+    });
+    return path;
+  }, [boundsWidth, boundsHeight]);
+  const amountPathStr = useMemo(() => {
+    let path = "";
+    HISTORICAL_DATA.forEach((d, i) => {
+      const x = getX(d.year);
+      const val = focusMetric === "debt" ? d.debt : d.deficit;
+      const y = getAmountY(val);
+      if (i === 0) {
+        path += `M ${x} ${y}`;
+      } else {
+        path += ` L ${x} ${y}`;
+      }
+    });
+    return path;
+  }, [boundsWidth, boundsHeight, focusMetric]);
+  const xTicks = [1970, 1980, 1990, 2e3, 2010, 2020, 2025];
+  const taxTicks = [20, 40, 60, 70];
+  const amountTicks = focusMetric === "debt" ? [0, 1e4, 2e4, 3e4, 38e3] : [0, 1e3, 2e3, 3100];
+  const currentPresetValue = useMemo(() => {
+    const milestones = [1981, 1986, 1993, 2e3, 2020, 2025];
+    return milestones.includes(selectedYear) ? String(selectedYear) : "custom";
+  }, [selectedYear]);
+  return /* @__PURE__ */ jsx(ErrorBoundary, { FallbackComponent: ErrorFallback, children: /* @__PURE__ */ jsxs("div", { ref: containerRef, className: "w-full font-sans bg-card text-foreground select-none overflow-hidden flex flex-col", children: [
+    /* @__PURE__ */ jsxs("div", { className: "px-5 py-3 flex flex-wrap items-center justify-between gap-3 border-b border-border", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-wrap gap-x-4 gap-y-1", children: [
+        /* @__PURE__ */ jsxs("div", { className: "min-w-0 flex items-center gap-1.5", children: [
+          /* @__PURE__ */ jsx("span", { className: "w-2.5 h-2.5 rounded-full bg-amber-500 inline-block shrink-0" }),
+          /* @__PURE__ */ jsx("span", { className: "text-xs font-normal text-muted-foreground whitespace-nowrap truncate", children: "Top Tax Rate (%)" })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "min-w-0 flex items-center gap-1.5", children: [
+          /* @__PURE__ */ jsx("span", { className: `w-2.5 h-2.5 rounded-full inline-block shrink-0 ${focusMetric === "deficit" ? "bg-red-500" : "bg-blue-500"}` }),
+          /* @__PURE__ */ jsx("span", { className: "text-xs font-normal text-muted-foreground whitespace-nowrap truncate", children: focusMetric === "deficit" ? "Annual Budget Deficit" : "Total National Debt" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "w-44 shrink-0", children: /* @__PURE__ */ jsxs(
+        ToggleGroup.Root,
+        {
+          type: "single",
+          value: focusMetric,
+          onValueChange: (val) => val && setFocusMetric(val),
+          className: "rounded-full flex w-full bg-muted h-8 p-0.5",
+          "aria-label": "Toggle primary metric axis focus",
+          children: [
+            /* @__PURE__ */ jsx(
+              ToggleGroup.Item,
+              {
+                value: "deficit",
+                title: "View Annual Deficit",
+                className: "flex-1 min-w-0 text-center px-2 rounded-full text-xs font-medium transition-colors cursor-pointer data-[state=on]:bg-primary data-[state=on]:text-white relative overflow-visible",
+                children: "Deficit"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              ToggleGroup.Item,
+              {
+                value: "debt",
+                title: "View Total Debt",
+                className: "flex-1 min-w-0 text-center px-2 rounded-full text-xs font-medium transition-colors cursor-pointer data-[state=on]:bg-primary data-[state=on]:text-white relative overflow-visible",
+                children: "Total Debt"
+              }
+            )
+          ]
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "relative w-full border-b border-border", children: [
+      /* @__PURE__ */ jsx(
+        "svg",
+        {
+          role: "img",
+          "aria-label": "Historical macroeconomic correlation chart from 1970 to 2025",
+          viewBox: `0 0 ${width} ${height}`,
+          width: "100%",
+          height,
+          onMouseMove: (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left - margin.left;
+            const pct = Math.max(0, Math.min(1, mouseX / boundsWidth));
+            const yr = Math.round(1970 + pct * (2025 - 1970));
+            if (yr >= 1970 && yr <= 2025) setSelectedYear(yr);
+          },
+          onTouchMove: (e) => {
+            if (!e.touches.length) return;
+            const rect = e.currentTarget.getBoundingClientRect();
+            const touchX = e.touches[0].clientX - rect.left - margin.left;
+            const pct = Math.max(0, Math.min(1, touchX / boundsWidth));
+            const yr = Math.round(1970 + pct * (2025 - 1970));
+            if (yr >= 1970 && yr <= 2025) setSelectedYear(yr);
+          },
+          className: "overflow-visible cursor-crosshair",
+          children: /* @__PURE__ */ jsxs("g", { transform: `translate(${margin.left}, ${margin.top})`, children: [
+            xTicks.map((yr) => /* @__PURE__ */ jsxs("g", { transform: `translate(${getX(yr)}, 0)`, children: [
+              /* @__PURE__ */ jsx("line", { y1: 0, y2: boundsHeight, stroke: "var(--color-border)", strokeWidth: 1, strokeDasharray: "2 3", opacity: 0.3 }),
+              /* @__PURE__ */ jsx("text", { y: boundsHeight + 16, textAnchor: "middle", fontSize: 11, fill: "var(--color-muted-foreground)", children: yr })
+            ] }, yr)),
+            taxTicks.map((t) => /* @__PURE__ */ jsxs("g", { transform: `translate(0, ${getTaxY(t)})`, children: [
+              /* @__PURE__ */ jsx("line", { x1: -4, x2: boundsWidth, stroke: "var(--color-border)", opacity: 0.1 }),
+              /* @__PURE__ */ jsxs("text", { x: -8, dy: "0.32em", textAnchor: "end", fontSize: 11, fill: "var(--color-warning)", className: "font-medium", children: [
+                t,
+                "%"
+              ] })
+            ] }, t)),
+            amountTicks.map((amt) => /* @__PURE__ */ jsxs("g", { transform: `translate(${boundsWidth}, ${getAmountY(amt)})`, children: [
+              /* @__PURE__ */ jsx("line", { x1: -boundsWidth, x2: 4, stroke: "var(--color-border)", opacity: 0.1 }),
+              /* @__PURE__ */ jsxs("text", { x: 8, dy: "0.32em", textAnchor: "start", fontSize: 11, fill: focusMetric === "deficit" ? "var(--color-error)" : "var(--color-primary)", className: "font-medium", children: [
+                "$",
+                (amt / 1e3).toFixed(1),
+                "T"
+              ] })
+            ] }, amt)),
+            /* @__PURE__ */ jsx("path", { d: taxPathStr, fill: "none", stroke: "var(--color-warning)", strokeWidth: 2.5, strokeLinecap: "round", opacity: 0.8 }),
+            /* @__PURE__ */ jsx("path", { d: amountPathStr, fill: "none", stroke: focusMetric === "deficit" ? "var(--color-error)" : "var(--color-primary)", strokeWidth: 3, strokeLinecap: "round" }),
+            /* @__PURE__ */ jsx("line", { x1: getX(selectedYear), x2: getX(selectedYear), y1: 0, y2: boundsHeight, stroke: "var(--color-foreground)", strokeWidth: 1.5, opacity: 0.5 }),
+            /* @__PURE__ */ jsx("circle", { cx: getX(selectedYear), cy: getTaxY(activeDataPoint.taxRate), r: 5, fill: "var(--color-card)", stroke: "var(--color-warning)", strokeWidth: 2 }),
+            /* @__PURE__ */ jsx("circle", { cx: getX(selectedYear), cy: getAmountY(focusMetric === "debt" ? activeDataPoint.debt : activeDataPoint.deficit), r: 5, fill: "var(--color-card)", stroke: focusMetric === "deficit" ? "var(--color-error)" : "var(--color-primary)", strokeWidth: 2 })
+          ] })
+        }
+      ),
+      activeDataPoint.event && /* @__PURE__ */ jsxs("div", { className: "absolute left-1/2 -translate-x-1/2 bg-card/90 backdrop-blur-xs text-foreground px-3 py-1 rounded-full text-xs font-normal border border-border text-center max-w-[85%] pointer-events-none transition-all", style: { top: `${margin.top - 15}px` }, children: [
+        /* @__PURE__ */ jsxs("span", { className: "font-medium text-primary mr-1", children: [
+          activeDataPoint.year,
+          ":"
+        ] }),
+        activeDataPoint.event
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-center gap-x-4 sm:gap-x-8 md:gap-x-12 border-b border-border px-5 py-3 shrink-0", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center gap-0.5 min-w-0 flex-1", children: [
+        /* @__PURE__ */ jsx("span", { className: "text-xs text-muted-foreground font-medium truncate text-center w-full", children: "Year Focus" }),
+        /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-foreground tabular-nums truncate text-center w-full", children: selectedYear })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center gap-0.5 min-w-0 flex-1", children: [
+        /* @__PURE__ */ jsx("span", { className: "text-xs text-muted-foreground font-medium truncate text-center w-full", children: "Top Tax Rate" }),
+        /* @__PURE__ */ jsxs("span", { className: "text-sm font-medium text-warning tabular-nums truncate text-center w-full", children: [
+          activeDataPoint.taxRate.toFixed(1),
+          "%"
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center gap-0.5 min-w-0 flex-1", children: [
+        /* @__PURE__ */ jsx("span", { className: "text-xs text-muted-foreground font-medium truncate text-center w-full", children: focusMetric === "debt" ? "National Debt" : "Annual Deficit" }),
+        /* @__PURE__ */ jsx("span", { className: `text-sm font-medium tabular-nums truncate text-center w-full ${focusMetric === "deficit" ? "text-error" : "text-primary"}`, children: focusMetric === "debt" ? `$ ${(activeDataPoint.debt / 1e3).toFixed(2)} T` : activeDataPoint.deficit < 0 ? `+$${Math.abs(activeDataPoint.deficit).toFixed(0)}B Surplus` : `$ ${(activeDataPoint.deficit / 1e3).toFixed(2)} T Short` })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "p-5 flex flex-col gap-4", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-1.5", children: [
+        /* @__PURE__ */ jsx("div", { className: "flex justify-between items-center text-sm font-medium text-muted-foreground", children: /* @__PURE__ */ jsx("label", { htmlFor: "year-scrubber-range", children: "Timeline Interactive Scrub" }) }),
+        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4 w-full", children: [
+          /* @__PURE__ */ jsx(
+            "input",
+            {
+              id: "year-scrubber-range",
+              type: "range",
+              min: 1970,
+              max: 2025,
+              step: 1,
+              value: selectedYear,
+              onChange: (e) => setSelectedYear(parseInt(e.target.value, 10)),
+              className: "grow h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
+            }
+          ),
+          /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-right shrink-0 whitespace-nowrap tabular-nums w-[6ch]", children: selectedYear })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex flex-col gap-1.5", children: [
+        /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-muted-foreground", children: "Historical Landmark Eras" }),
+        /* @__PURE__ */ jsxs(
+          ToggleGroup.Root,
+          {
+            type: "single",
+            value: currentPresetValue,
+            onValueChange: (val) => val && val !== "custom" && setSelectedYear(parseInt(val, 10)),
+            className: "rounded-lg flex flex-wrap w-full bg-muted p-1 gap-1 h-auto",
+            "aria-label": "Select historical era preset",
+            children: [
+              /* @__PURE__ */ jsx(ToggleGroup.Item, { value: "1981", className: "flex-1 min-w-[75px] text-center py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer data-[state=on]:bg-primary data-[state=on]:text-white relative overflow-visible", children: "1981 Cut" }),
+              /* @__PURE__ */ jsx(ToggleGroup.Item, { value: "1986", className: "flex-1 min-w-[75px] text-center py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer data-[state=on]:bg-primary data-[state=on]:text-white relative overflow-visible", children: "1986 Act" }),
+              /* @__PURE__ */ jsx(ToggleGroup.Item, { value: "1993", className: "flex-1 min-w-[75px] text-center py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer data-[state=on]:bg-primary data-[state=on]:text-white relative overflow-visible", children: "1993 Raise" }),
+              /* @__PURE__ */ jsx(ToggleGroup.Item, { value: "2000", className: "flex-1 min-w-[75px] text-center py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer data-[state=on]:bg-primary data-[state=on]:text-white relative overflow-visible", children: "2000 Surplus" }),
+              /* @__PURE__ */ jsx(ToggleGroup.Item, { value: "2020", className: "flex-1 min-w-[75px] text-center py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer data-[state=on]:bg-primary data-[state=on]:text-white relative overflow-visible", children: "2020 Peak" }),
+              /* @__PURE__ */ jsx(ToggleGroup.Item, { value: "2025", className: "flex-1 min-w-[75px] text-center py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer data-[state=on]:bg-primary data-[state=on]:text-white relative overflow-visible", children: "2025 Now" })
+            ]
+          }
+        )
+      ] })
+    ] })
+  ] }) });
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  /* @__PURE__ */ jsx(React.StrictMode, { children: /* @__PURE__ */ jsx(App, {}) })
+);
+
+</script><style>
+/*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
+@layer properties {
+  @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+    *, :before, :after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+      --tw-ordinal: initial;
+      --tw-slashed-zero: initial;
+      --tw-numeric-figure: initial;
+      --tw-numeric-spacing: initial;
+      --tw-numeric-fraction: initial;
+      --tw-outline-style: solid;
+      --tw-backdrop-blur: initial;
+      --tw-backdrop-brightness: initial;
+      --tw-backdrop-contrast: initial;
+      --tw-backdrop-grayscale: initial;
+      --tw-backdrop-hue-rotate: initial;
+      --tw-backdrop-invert: initial;
+      --tw-backdrop-opacity: initial;
+      --tw-backdrop-saturate: initial;
+      --tw-backdrop-sepia: initial;
+      --tw-duration: initial;
+    }
+  }
+}
+
+@layer theme {
+  :root, :host {
+    --font-sans: "Google Sans", "Roboto", sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --color-red-500: oklch(63.7% .237 25.331);
+    --color-amber-500: oklch(76.9% .188 70.08);
+    --color-blue-500: oklch(62.3% .214 259.815);
+    --color-white: #fff;
+    --spacing: .25rem;
+    --text-xs: .75rem;
+    --text-xs--line-height: calc(1 / .75);
+    --text-sm: .875rem;
+    --text-sm--line-height: calc(1.25 / .875);
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --radius-md: .375rem;
+    --radius-lg: .5rem;
+    --blur-xs: 4px;
+    --default-transition-duration: .15s;
+    --default-transition-timing-function: cubic-bezier(.31, .94, .34, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+    --color-primary: var(--primary, #336ef3);
+    --color-primary-hover: var(--primary-hover, #395fe1);
+    --color-error: var(--brand-red, #ea4335);
+    --color-warning: var(--brand-yellow, #fbbc04);
+    --color-success: var(--brand-green, #34a853);
+    --color-background: var(--surface-container-de-emphasis, #f7f8fa);
+    --color-card: var(--surface-container-de-emphasis, #f7f8fa);
+    --color-card-hover: var(--surface-container-high, #e9ebf0);
+    --color-border: var(--divider, #dcdfe5);
+    --color-input: var(--surface-container, #f0f2f5);
+    --color-secondary: var(--surface-container-high, #e9ebf0);
+    --color-secondary-hover: var(--surface-container-highest, #e1e3e8);
+    --color-accent: var(--surface-container-highest, #e1e3e8);
+    --color-accent-foreground: var(--on-surface-default, #0a0a0a);
+    --color-muted: var(--surface-container, #f0f2f5);
+    --color-muted-foreground: var(--on-surface-de-emphasis, #56595e);
+    --color-foreground: var(--on-surface-default, #0a0a0a);
+    --color-disabled: var(--surface-container, #f0f2f5);
+    --color-disabled-foreground: var(--disabled-foreground, #95989c);
+  }
+}
+
+@layer base {
+  *, :after, :before, ::backdrop {
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+  }
+
+  ::file-selector-button {
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, :host {
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    line-height: 1.5;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    -webkit-text-decoration: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+
+  b, strong {
+    font-weight: bolder;
+  }
+
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+
+  small {
+    font-size: 80%;
+  }
+
+  sub, sup {
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+  }
+
+  sub {
+    bottom: -.25em;
+  }
+
+  sup {
+    top: -.5em;
+  }
+
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+
+  :-moz-focusring {
+    outline: auto;
+  }
+
+  progress {
+    vertical-align: baseline;
+  }
+
+  summary {
+    display: list-item;
+  }
+
+  ol, ul, menu {
+    list-style: none;
+  }
+
+  img, svg, video, canvas, audio, iframe, embed, object {
+    vertical-align: middle;
+    display: block;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  button, input, select, optgroup, textarea {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    opacity: 1;
+    background-color: #0000;
+    border-radius: 0;
+  }
+
+  ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    opacity: 1;
+    background-color: #0000;
+    border-radius: 0;
+  }
+
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+
+  ::placeholder {
+    opacity: 1;
+  }
+
+  @supports (not ((-webkit-appearance: -apple-pay-button))) or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentColor;
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      ::placeholder {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+
+  ::-webkit-datetime-edit {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-year-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-month-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-day-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-hour-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-minute-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-second-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-millisecond-field {
+    padding-block: 0;
+  }
+
+  ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+
+  button, input:where([type="button"], [type="reset"], [type="submit"]) {
+    appearance: button;
+  }
+
+  ::file-selector-button {
+    appearance: button;
+  }
+
+  ::-webkit-inner-spin-button {
+    height: auto;
+  }
+
+  ::-webkit-outer-spin-button {
+    height: auto;
+  }
+
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+
+@layer components;
+
+@layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
+  .relative {
+    position: relative;
+  }
+
+  .static {
+    position: static;
+  }
+
+  .top-4 {
+    top: calc(var(--spacing) * 4);
+  }
+
+  .left-1 {
+    left: calc(var(--spacing) * 1);
+  }
+
+  .left-1\/2 {
+    left: 50%;
+  }
+
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+
+  .mr-1 {
+    margin-right: calc(var(--spacing) * 1);
+  }
+
+  .block {
+    display: block;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  .inline-block {
+    display: inline-block;
+  }
+
+  .table {
+    display: table;
+  }
+
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
+
+  .h-2\.5 {
+    height: calc(var(--spacing) * 2.5);
+  }
+
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
+
+  .h-auto {
+    height: auto;
+  }
+
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+
+  .w-2\.5 {
+    width: calc(var(--spacing) * 2.5);
+  }
+
+  .w-44 {
+    width: calc(var(--spacing) * 44);
+  }
+
+  .w-\[6ch\] {
+    width: 6ch;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  .max-w-\[85\%\] {
+    max-width: 85%;
+  }
+
+  .max-w-full {
+    max-width: 100%;
+  }
+
+  .min-w-0 {
+    min-width: calc(var(--spacing) * 0);
+  }
+
+  .min-w-\[70px\] {
+    min-width: 70px;
+  }
+
+  .min-w-\[75px\] {
+    min-width: 75px;
+  }
+
+  .flex-1 {
+    flex: 1;
+  }
+
+  .flex-shrink {
+    flex-shrink: 1;
+  }
+
+  .shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .flex-grow, .grow {
+    flex-grow: 1;
+  }
+
+  .border-collapse {
+    border-collapse: collapse;
+  }
+
+  .-translate-x-1 {
+    --tw-translate-x: calc(var(--spacing) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+
+  .-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+
+  .transform {
+    transform: var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, );
+  }
+
+  .cursor-crosshair {
+    cursor: crosshair;
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .resize {
+    resize: both;
+  }
+
+  .appearance-none {
+    appearance: none;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .gap-0 {
+    gap: calc(var(--spacing) * 0);
+  }
+
+  .gap-0\.5 {
+    gap: calc(var(--spacing) * .5);
+  }
+
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
+
+  .gap-1\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
+
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+
+  .gap-x-3 {
+    column-gap: calc(var(--spacing) * 3);
+  }
+
+  .gap-x-4 {
+    column-gap: calc(var(--spacing) * 4);
+  }
+
+  .gap-y-1 {
+    row-gap: calc(var(--spacing) * 1);
+  }
+
+  .truncate {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .overflow-auto {
+    overflow: auto;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
+  .overflow-visible {
+    overflow: visible;
+  }
+
+  .rounded {
+    border-radius: .25rem;
+  }
+
+  .rounded-full {
+    border-radius: 3.40282e38px;
+  }
+
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
+
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+
+  .border-border {
+    border-color: var(--color-border);
+  }
+
+  .bg-amber-500 {
+    background-color: var(--color-amber-500);
+  }
+
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
+
+  .bg-card, .bg-card\/10 {
+    background-color: var(--color-card);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-card\/10 {
+      background-color: color-mix(in oklab, var(--color-card) 10%, transparent);
+    }
+  }
+
+  .bg-card\/50 {
+    background-color: var(--color-card);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-card\/50 {
+      background-color: color-mix(in oklab, var(--color-card) 50%, transparent);
+    }
+  }
+
+  .bg-card\/80 {
+    background-color: var(--color-card);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-card\/80 {
+      background-color: color-mix(in oklab, var(--color-card) 80%, transparent);
+    }
+  }
+
+  .bg-card\/90 {
+    background-color: var(--color-card);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-card\/90 {
+      background-color: color-mix(in oklab, var(--color-card) 90%, transparent);
+    }
+  }
+
+  .bg-muted {
+    background-color: var(--color-muted);
+  }
+
+  .bg-red-500 {
+    background-color: var(--color-red-500);
+  }
+
+  .p-0 {
+    padding: calc(var(--spacing) * 0);
+  }
+
+  .p-0\.5 {
+    padding: calc(var(--spacing) * .5);
+  }
+
+  .p-1 {
+    padding: calc(var(--spacing) * 1);
+  }
+
+  .p-5 {
+    padding: calc(var(--spacing) * 5);
+  }
+
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
+  }
+
+  .py-0 {
+    padding-block: calc(var(--spacing) * 0);
+  }
+
+  .py-0\.5 {
+    padding-block: calc(var(--spacing) * .5);
+  }
+
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
+
+  .py-1\.5 {
+    padding-block: calc(var(--spacing) * 1.5);
+  }
+
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
+  }
+
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+
+  .text-error {
+    color: var(--color-error);
+  }
+
+  .text-foreground {
+    color: var(--color-foreground);
+  }
+
+  .text-muted-foreground {
+    color: var(--color-muted-foreground);
+  }
+
+  .text-primary {
+    color: var(--color-primary);
+  }
+
+  .text-warning {
+    color: var(--color-warning);
+  }
+
+  .tabular-nums {
+    --tw-numeric-spacing: tabular-nums;
+    font-variant-numeric: var(--tw-ordinal, ) var(--tw-slashed-zero, ) var(--tw-numeric-figure, ) var(--tw-numeric-spacing, ) var(--tw-numeric-fraction, );
+  }
+
+  .underline {
+    text-decoration-line: underline;
+  }
+
+  .accent-primary {
+    accent-color: var(--color-primary);
+  }
+
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+
+  .backdrop-blur-xs {
+    --tw-backdrop-blur: blur(var(--blur-xs));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+    backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+  }
+
+  .backdrop-filter {
+    -webkit-backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+    backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+  }
+
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+
+  .duration-200 {
+    --tw-duration: .2s;
+    transition-duration: .2s;
+  }
+
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .data-\[state\=on\]\:bg-primary[data-state="on"] {
+    background-color: var(--color-primary);
+  }
+
+  .data-\[state\=on\]\:text-white[data-state="on"] {
+    color: var(--color-white);
+  }
+
+  @media (min-width: 40rem) {
+    .sm\:gap-x-8 {
+      column-gap: calc(var(--spacing) * 8);
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .md\:gap-x-12 {
+      column-gap: calc(var(--spacing) * 12);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --color-primary: var(--primary, #336ef3);
+    --color-primary-hover: var(--primary-hover, #395fe1);
+    --color-error: var(--brand-red, #ea4335);
+    --color-warning: var(--brand-yellow, #fbbc04);
+    --color-success: var(--brand-green, #34a853);
+    --color-background: var(--surface-container-de-emphasis, #272930);
+    --color-card: var(--surface-container-de-emphasis, #272930);
+    --color-card-hover: var(--surface-container-high, #363840);
+    --color-border: var(--divider, #363840);
+    --color-input: var(--surface-container, #2c2e35);
+    --color-secondary: var(--surface-container-high, #363840);
+    --color-secondary-hover: var(--surface-container-highest, #42444d);
+    --color-accent: var(--surface-container-highest, #42444d);
+    --color-accent-foreground: var(--on-surface-default, #e6e8f0);
+    --color-muted: var(--surface-container, #2c2e35);
+    --color-muted-foreground: var(--on-surface-de-emphasis, #adafb8);
+    --color-foreground: var(--on-surface-default, #e6e8f0);
+    --color-disabled: var(--surface-container, #2c2e35);
+    --color-disabled-foreground: var(--disabled-foreground, #797c90);
+  }
+}
+
+.dark {
+  --color-primary: var(--primary, #336ef3);
+  --color-primary-hover: var(--primary-hover, #395fe1);
+  --color-error: var(--brand-red, #ea4335);
+  --color-warning: var(--brand-yellow, #fbbc04);
+  --color-success: var(--brand-green, #34a853);
+  --color-background: var(--surface-container-de-emphasis, #272930);
+  --color-card: var(--surface-container-de-emphasis, #272930);
+  --color-card-hover: var(--surface-container-high, #363840);
+  --color-border: var(--divider, #363840);
+  --color-input: var(--surface-container, #2c2e35);
+  --color-secondary: var(--surface-container-high, #363840);
+  --color-secondary-hover: var(--surface-container-highest, #42444d);
+  --color-accent: var(--surface-container-highest, #42444d);
+  --color-accent-foreground: var(--on-surface-default, #e6e8f0);
+  --color-muted: var(--surface-container, #2c2e35);
+  --color-muted-foreground: var(--on-surface-de-emphasis, #adafb8);
+  --color-foreground: var(--on-surface-default, #e6e8f0);
+  --color-disabled: var(--surface-container, #2c2e35);
+  --color-disabled-foreground: var(--disabled-foreground, #797c90);
+}
+
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-ordinal {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-slashed-zero {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-numeric-figure {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-numeric-spacing {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-numeric-fraction {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+
+@property --tw-backdrop-blur {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-brightness {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-duration {
+  syntax: "*";
+  inherits: false
+}
+
+</style><link href="https://www.gstatic.com/_/mss/search-next/_/ss/k=search-next.ss.1zF0hu3TXrc.L.W1.O/am=AB7AAACGAAIW/d=1/ed=1/dg=2/rs=AE5fCmQ96jpanYKIso6lLZVZmJMkT_j3LQ/ee=/m=capy_widget_colors" rel="stylesheet"></head>
+    <body>
+  
+  <div id="root"></div></body></html>
